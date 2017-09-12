@@ -1,4 +1,4 @@
-package test.business;
+package business;
 
 public class LogInterpreterTest {
 
