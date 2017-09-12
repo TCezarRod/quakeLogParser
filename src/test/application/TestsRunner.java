@@ -10,7 +10,7 @@ public class TestsRunner {
 
 	public static void main(String[] args) {
 
-		System.out.println("Testing:");
+		System.out.println("Testing");
 		Result result = JUnitCore.runClasses(InputParserTest.class);
 		
 		for(Failure fail : result.getFailures()){

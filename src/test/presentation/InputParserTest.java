@@ -1,4 +1,4 @@
-package test.presentation;
+package presentation;
 
 import static org.junit.Assert.*;
 import presentation.LogFileNotSpecifiedException;

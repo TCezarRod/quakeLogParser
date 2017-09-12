@@ -28,11 +28,7 @@ public class LogInterpreter {
 			return summaryList;
 		}
 		buildSummaryList();
-		
-		if(summaryList.size()<1){
-			throw new LogInterpretationException("No games were found in the log file.");
-		}
-		
+				
 		return summaryList;
 	}
 	
@@ -147,6 +143,11 @@ public class LogInterpreter {
 			}
 		} catch (IOException e) {
 			throw new LogInterpretationException("There was an error while reading the log file: "+e.getMessage());
+		}
+		
+
+		if(summaryList.size()<1){
+			throw new LogInterpretationException("No games were found in the log file.");
 		}
 	}
 	
