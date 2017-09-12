@@ -14,7 +14,7 @@ public class SummaryCommand implements ICommand {
 		
 		List<GameSummary> summaryList=null;
 		try {
-			summaryList = interpreter.GetLogSummary();
+			summaryList = interpreter.getLogSummary();
 		} catch (LogInterpretationException e) {
 			System.out.println("[ERROR: Log Summary Command] "+e.getMessage());
 		}

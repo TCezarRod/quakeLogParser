@@ -23,7 +23,7 @@ public class LogInterpreter {
 		this.logFile = file;
 	}
 	
-	public List<GameSummary> GetLogSummary() throws LogInterpretationException{
+	public List<GameSummary> getLogSummary() throws LogInterpretationException{
 		if(summaryList != null){
 			return summaryList;
 		}
@@ -32,7 +32,7 @@ public class LogInterpreter {
 		return summaryList;
 	}
 	
-	public List<Player> ListRanking() throws LogInterpretationException{
+	public List<Player> listRanking() throws LogInterpretationException{
 		if(rankingList != null){
 			return rankingList;
 		}

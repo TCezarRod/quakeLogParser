@@ -22,14 +22,14 @@ public class WebRankingCommand implements ICommand {
 		
 		List<Player> rankingList = null;
 		try {
-			rankingList = interpreter.ListRanking();
+			rankingList = interpreter.listRanking();
 		} catch (LogInterpretationException e) {
 			System.out.println("[ERROR: Web Ranking Command] "+e.getMessage());
 		}
 		
 		if(rankingList != null){
 			try {
-				WebParser.ParseRankingPage(rankingList, outputPath);
+				WebParser.parseRankingPage(rankingList, outputPath);
 				System.out.println("Ranking Web Page successfully created.\n");
 			} catch (WebRankingParseException e) {
 				System.out.println("[ERROR: Web Ranking Command] "+e.getMessage());

@@ -14,18 +14,18 @@ public class RankingCommand implements ICommand {
 		
 		List<Player> rankingList=null;
 		try {
-			rankingList = interpreter.ListRanking();
+			rankingList = interpreter.listRanking();
 		} catch (LogInterpretationException e) {
 			System.out.println("[ERROR: Ranking Command] "+e.getMessage());
 		}
 		
 		if(rankingList!=null){
-			System.out.println("Log Ranking:");
+			String rankingStr = "Log Ranking:\n";
 			int rank = 1;
 			for(Player player : rankingList){
-				System.out.println("#"+ (rank++) +" "+player.toString()+": "+player.getKillCount()+" kills");
+				rankingStr += "#"+ (rank++) +" "+player.toString()+": "+player.getKillCount()+" kills\n";
 			}
-			System.out.println();			
+			System.out.println(rankingStr);
 		}
 	}
 
