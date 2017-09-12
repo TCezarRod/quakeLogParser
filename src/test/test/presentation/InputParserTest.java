@@ -1,17 +1,11 @@
 package test.presentation;
 
-import utils.LogFileMissingException;
-import utils.InvalidOptionException;
+import static org.junit.Assert.*;
+import presentation.LogFileNotSpecifiedException;
+import presentation.InvalidOptionException;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileDescriptor;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
 import java.util.List;
 
-import org.hamcrest.CoreMatchers.*;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import presentation.AppArguments;
@@ -20,11 +14,12 @@ import presentation.InputParser;
 import presentation.RankingCommand;
 import presentation.SummaryCommand;
 import presentation.WebRankingCommand;
+
 import static org.junit.Assert.*;
 
 public class InputParserTest {
 		
-	@Test(expected = LogFileMissingException.class)
+	@Test(expected = LogFileNotSpecifiedException.class)
 	public void parse_commandWithoutFilePath_throwsLogFileMissingException() throws Exception{
 		String[] args = {"-s"};
 		

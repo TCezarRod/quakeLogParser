@@ -1,6 +1,13 @@
 package presentation;
 
 import java.io.File;
+import java.util.List;
+
+import business.LogInterpretationException;
+import business.WebRankingParseException;
+import business.LogInterpreter;
+import business.Player;
+import business.WebParser;
 
 public class WebRankingCommand implements ICommand {
 
@@ -10,8 +17,24 @@ public class WebRankingCommand implements ICommand {
 		outputPath = "./Ranking.html";
 	}
 	
-	public void Execute(File inputFile) {
-		// TODO Auto-generated method stub
+	public void execute(File inputFile) {
+		LogInterpreter interpreter = new LogInterpreter(inputFile);
+		
+		List<Player> rankingList = null;
+		try {
+			rankingList = interpreter.ListRanking();
+		} catch (LogInterpretationException e) {
+			System.out.println("[ERROR: Web Ranking Command] "+e.getMessage());
+		}
+		
+		if(rankingList != null){
+			try {
+				WebParser.ParseRankingPage(rankingList, outputPath);
+				System.out.println("Ranking Web Page successfully created.\n");
+			} catch (WebRankingParseException e) {
+				System.out.println("[ERROR: Web Ranking Command] "+e.getMessage());
+			}			
+		}
 	}
 	
 	public void setOutputPath(String outputPath){
