@@ -7,13 +7,24 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 import business.LogInterpreter;
 
 public class LogInterpreterTest {
 	private final File emptyFile = new File("resources/test/empty_file.txt");	
 	private final File validLogFile = new File("resources/test/test_log.txt");
+	
+	@Rule
+	public TestRule watcher = new TestWatcher() {
+	   protected void starting(Description description) {
+	      System.out.println("Starting test: " + description.getMethodName());
+	   }
+	};
 	
 	@Test(expected = LogInterpretationException.class)
 	public void getLogSummary_emptyFile_throwsLogInterpretationException() throws Exception{	

@@ -11,7 +11,11 @@ import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 import presentation.ICommand;
 import presentation.SummaryCommand;
@@ -45,6 +49,12 @@ public class CommandTest {
 			"Ranking Web Page successfully created."
 			+"\n\r\n";
 	
+	@Rule
+	public TestRule watcher = new TestWatcher() {
+	   protected void starting(Description description) {
+	      System.out.println("Starting test: " + description.getMethodName());
+	   }
+	};
 	
 	@Before
 	public void setUpStreams() {

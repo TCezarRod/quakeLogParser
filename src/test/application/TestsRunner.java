@@ -22,7 +22,7 @@ public class TestsRunner {
 	private static void runTests(Class<?> testClass){
 		Result result = JUnitCore.runClasses(testClass);
 
-		int count = result.getRunCount();
+		int count = result.getRunCount();		
 		if(result.wasSuccessful()){
 			System.out.println(count+" tests executed successfully");
 		}else{
@@ -37,6 +37,7 @@ public class TestsRunner {
 	private static void runInputParserTests(){
 		System.out.println("Testing InputParser");
 		runTests(InputParserTest.class);		
+		
 	}
 	
 	private static void runCommandTests(){

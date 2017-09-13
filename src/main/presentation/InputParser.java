@@ -99,7 +99,7 @@ public class InputParser {
 		final HelpFormatter formatter = new HelpFormatter();
 		formatter.setOptionComparator(new OptionComparator());
 		
-		final String cmdSyntax = "java -jar quakeLogParser.jar <FILENAME> [-hsr] [-w [-o <OUTPUT>]";
+		final String cmdSyntax = "java -jar quakeLogParser.jar <FILENAME> [-hsr] [-w [-o <OUTPUT>]]";
 		final String header = "Reads a log file from the game Quake III and creates summaries of the games and classification rankings of the players based on their kill count.\n"
 							+"A web page may be created if a base is provided containing a table if id=rankingTable.";
 		final String footer = "Created by Thalles Lima (tcrl at cin.ufpe.br)";

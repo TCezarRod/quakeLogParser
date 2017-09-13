@@ -8,13 +8,24 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.*;
 
 public class WebParserTest {
 	String webPagePath = "testpage.html";
 	String badModelPath = "resources/test/bad-ranking-page.html";
+	
+	@Rule
+	public TestRule watcher = new TestWatcher() {
+	   protected void starting(Description description) {
+	      System.out.println("Starting test: " + description.getMethodName());
+	   }
+	};
 	
 	@After
 	public void deletePageFile(){

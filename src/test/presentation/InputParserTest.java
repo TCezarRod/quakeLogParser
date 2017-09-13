@@ -6,7 +6,11 @@ import presentation.InvalidOptionException;
 
 import java.util.List;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 import presentation.AppArguments;
 import presentation.ICommand;
@@ -17,6 +21,13 @@ import presentation.WebRankingCommand;
 
 public class InputParserTest {
 		
+	@Rule
+	public TestRule watcher = new TestWatcher() {
+	   protected void starting(Description description) {
+	      System.out.println("Starting test: " + description.getMethodName());
+	   }
+	};
+	
 	@Test(expected = LogFileNotSpecifiedException.class)
 	public void parse_commandWithoutFilePath_throwsLogFileMissingException() throws Exception{
 		String[] args = {"-s"};
