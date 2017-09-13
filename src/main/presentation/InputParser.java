@@ -18,8 +18,8 @@ public class InputParser {
 			cmdLine = clParser.parse(options, args);
 		}catch(ParseException e){
 			throw new InvalidOptionException("Unable to parse command-line arguments "
-					+ Arrays.toString(args) + " due to: "
-					+ e);
+					+ Arrays.toString(args) + ": "
+					+ e.getMessage());
 		}
 		
 		if(cmdLine.hasOption("help")){
