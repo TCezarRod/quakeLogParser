@@ -15,22 +15,20 @@ import presentation.RankingCommand;
 import presentation.SummaryCommand;
 import presentation.WebRankingCommand;
 
-import static org.junit.Assert.*;
-
 public class InputParserTest {
 		
 	@Test(expected = LogFileNotSpecifiedException.class)
 	public void parse_commandWithoutFilePath_throwsLogFileMissingException() throws Exception{
 		String[] args = {"-s"};
 		
-		AppArguments arguments = InputParser.parse(args);		
+		InputParser.parse(args);		
 	}
 	
 	@Test(expected = InvalidOptionException.class)
 	public void parse_invalidOptions_throwsInvalidOptionException() throws Exception{
 		String[] args = {"-x"};
 		
-		AppArguments arguments = InputParser.parse(args);		
+		InputParser.parse(args);		
 	}
 	
 	@Test

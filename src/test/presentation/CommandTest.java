@@ -8,14 +8,12 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import presentation.ICommand;
-import presentation.InputParser;
 import presentation.SummaryCommand;
 
 public class CommandTest {
